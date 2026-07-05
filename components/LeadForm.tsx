@@ -29,7 +29,7 @@ export function LeadForm({ source, defaultProject = "", compact = false }: LeadF
     if (params.get("lead") === "success") {
       setStatus({
         kind: "success",
-        message: "Enquiry saved successfully. Open Admin directly at /admin to view or download the lead."
+        message: "Thank you! Your enquiry has been received. Our team will contact you shortly."
       });
     }
 
@@ -111,7 +111,7 @@ export function LeadForm({ source, defaultProject = "", compact = false }: LeadF
       form.reset();
       setStatus({
         kind: "success",
-        message: "Enquiry saved successfully. Open Admin directly at /admin to view or download the lead."
+        message: "Thank you! Your enquiry has been received. Our team will contact you shortly."
       });
     } catch {
       form.submit();

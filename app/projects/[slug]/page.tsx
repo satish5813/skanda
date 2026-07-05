@@ -136,9 +136,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <section className="section lead-section" id="lead-form">
           <div className="lead-copy">
             <p className="eyebrow">Project Enquiry</p>
-            <h2>Send this buyer directly to sales follow-up.</h2>
+            <h2>Book a site visit or request full details.</h2>
             <p>
-              The selected project is prefilled. Submissions are saved in the same SQLite admin database.
+              This project is already selected in the form. Share your phone number and a
+              preferred date — our team will call you back with pricing and availability.
             </p>
           </div>
           <LeadForm source={`${project.title} page`} defaultProject={project.title} />

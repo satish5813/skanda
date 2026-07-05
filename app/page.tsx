@@ -3,11 +3,10 @@ import Link from "next/link";
 import {
   ArrowRight,
   Building2,
-  Download,
+  CalendarCheck,
   MapPinned,
   PhoneCall,
   ShieldCheck,
-  Smartphone,
   Sprout,
   TrendingUp
 } from "lucide-react";
@@ -35,14 +34,14 @@ const advantages = [
     text: "Investment pages built around corridor, access, and long-term demand context."
   },
   {
-    icon: Smartphone,
-    title: "Mobile first",
-    text: "Fast lead capture, responsive project cards, and readable visuals on every screen."
+    icon: CalendarCheck,
+    title: "Guided site visits",
+    text: "Pick a convenient date and our team walks you through the project on the ground."
   },
   {
-    icon: Download,
-    title: "Admin ready",
-    text: "Every enquiry is stored in SQLite and downloadable from the protected dashboard."
+    icon: PhoneCall,
+    title: "Quick response",
+    text: "Every enquiry reaches our sales team immediately for a fast callback."
   }
 ];
 
@@ -134,8 +133,8 @@ export default function HomePage() {
           </div>
           <p>
             Skanda Estates brings carefully evaluated real estate opportunities across Telangana
-            and Andhra Pradesh. The application supports public project discovery, high-intent
-            enquiry capture, and an admin workflow for sales follow-up.
+            and Andhra Pradesh. Every project is assessed for location strength, documentation
+            clarity, and long-term growth potential — so you can invest with confidence.
           </p>
         </section>
 
@@ -241,10 +240,10 @@ export default function HomePage() {
         <section className="section lead-section" id="lead-form">
           <div className="lead-copy">
             <p className="eyebrow">Enquiry</p>
-            <h2>Capture every serious buyer lead.</h2>
+            <h2>Tell us what you are looking for.</h2>
             <p>
-              The form writes directly to SQLite. Admin can load saved data, inspect requirements,
-              and download the complete CSV file.
+              Share your details and preferred visit date — our team will call you back with
+              pricing, plot availability, and site visit arrangements.
             </p>
           </div>
           <LeadForm source="Home page" />
@@ -253,7 +252,7 @@ export default function HomePage() {
 
       <footer className="footer">
         <span>&copy; {new Date().getFullYear()} Skanda Estates. Building Better Tomorrow.</span>
-        <span>Project details should be verified with final documents before publishing.</span>
+        <span>All project details are indicative and subject to final documentation.</span>
       </footer>
     </>
   );
