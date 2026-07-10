@@ -91,6 +91,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <p className="eyebrow">Project Snapshot</p>
             <h2>{project.focus} with clear buyer follow-up.</h2>
             <p>{project.seoDescription}</p>
+            {project.plotOptions ? (
+              <div className="plot-options" aria-label="Available plot sizes">
+                {project.plotOptions.map((size) => (
+                  <span key={size}>{size}</span>
+                ))}
+              </div>
+            ) : null}
           </div>
           <div className="detail-list">
             {project.highlights.map((highlight) => (
@@ -116,6 +123,24 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             <strong>{project.focus}</strong>
           </article>
         </section>
+
+        {project.paymentPlan ? (
+          <section className="section payment-section" aria-label={`${project.title} payment plan`}>
+            <div className="section-heading">
+              <p className="eyebrow">Easy EMI</p>
+              <h2>{project.paymentPlan.heading}</h2>
+            </div>
+            <div className="investment-strip payment-grid">
+              {project.paymentPlan.items.map((item) => (
+                <article key={item.label}>
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                </article>
+              ))}
+            </div>
+            <p className="plan-note">{project.paymentPlan.note}</p>
+          </section>
+        ) : null}
 
         <section className="gallery-band" id="gallery">
           <div className="section-heading">

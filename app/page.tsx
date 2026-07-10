@@ -17,8 +17,10 @@ import { projects } from "@/lib/projects";
 
 const heroSlides = [
   { src: "/projects/perams-aditya/hero.jpeg", alt: "Peram's Aditya plotted layout near Shankarpally growth corridor" },
+  { src: "/projects/macadamia-estate/hero.jpeg", alt: "Macadamia Estate sapling plantation at Narayanakhed" },
   { src: "/projects/cloud-farming/hero.jpeg", alt: "Cloud Farming integrated farm land in Vinukonda" },
   { src: "/projects/perams-aditya/gallery-1.jpeg", alt: "Peram's Aditya project site visuals" },
+  { src: "/projects/macadamia-estate/gallery-1.jpeg", alt: "Macadamia Estate nursery rows ready for plantation" },
   { src: "/projects/cloud-farming/gallery-2.jpeg", alt: "Cloud Farming green landscape view" }
 ];
 
@@ -102,18 +104,22 @@ export default function HomePage() {
                 <MapPinned size={15} aria-hidden="true" />
                 Shankarpally Corridor, Telangana
               </span>
+              <span>
+                <MapPinned size={15} aria-hidden="true" />
+                Narayanakhed, Telangana
+              </span>
             </div>
           </div>
           <aside className="hero-panel" aria-label="Project highlights">
             <div>
-              <span>02</span>
+              <span>03</span>
               <strong>Featured projects</strong>
               <small>Farm land &amp; plotted layouts</small>
             </div>
             <div>
-              <span>Rs. 7.61L</span>
+              <span>Rs. 1.21L</span>
               <strong>Entry investment</strong>
-              <small>Cloud Farming packages onwards</small>
+              <small>Macadamia Estate guntas onwards</small>
             </div>
             <div>
               <span>12,600 ac</span>

@@ -11,6 +11,12 @@ export type Project = {
   highlights: string[];
   gallery: string[];
   seoDescription: string;
+  plotOptions?: string[];
+  paymentPlan?: {
+    heading: string;
+    note: string;
+    items: { label: string; value: string }[];
+  };
 };
 
 export const projects: Project[] = [
@@ -63,6 +69,48 @@ export const projects: Project[] = [
     ],
     seoDescription:
       "Peram's Aditya Gadimalkapur by Skanda Estates near the Shankarpally growth corridor with plot enquiry and site visit support."
+  },
+  {
+    slug: "macadamia-estate",
+    title: "Macadamia Estate",
+    shortTitle: "Macadamia Estate",
+    location: "Narayanakhed Municipality (Abbenda)",
+    description:
+      "47-acre managed macadamia farmland with gunta-sized ownership, farm revenue sharing, easy EMI plans, and a luxury clubhouse with lifetime free membership.",
+    heroImage: "/projects/macadamia-estate/hero.jpeg",
+    rate: "Rs. 1,000 / sq. yd",
+    investment: "Rs. 1.21L / gunta",
+    focus: "Macadamia farmland",
+    highlights: [
+      "1 gunta (121 sq. yds) at Rs. 1,21,000 with spot registration",
+      "Free NALA conversion communication on registration",
+      "80% farm revenue share to the customer, 20% to the developer",
+      "Year-on-year land rate appreciation as per market value",
+      "Luxury clubhouse with lifetime free membership",
+      "Sell your plot any time after 1 year — no maturity period"
+    ],
+    plotOptions: ["121 sq. yds", "303 sq. yds", "605 sq. yds", "1210 sq. yds"],
+    paymentPlan: {
+      heading: "Easy EMI ownership for 1 gunta (121 sq. yds).",
+      note:
+        "Example plan for 1 gunta. Flexible tenures of 12, 24, or 36 months are available — final schedule as per the payment agreement.",
+      items: [
+        { label: "Down payment", value: "Rs. 19,500 only" },
+        { label: "Monthly EMI", value: "Rs. 4,500 x 36 months" },
+        { label: "Total with EMI", value: "Rs. 1,81,500" },
+        { label: "Tenure options", value: "12 / 24 / 36 months" }
+      ]
+    },
+    gallery: [
+      "/projects/macadamia-estate/gallery-1.jpeg",
+      "/projects/macadamia-estate/gallery-2.jpeg",
+      "/projects/macadamia-estate/gallery-3.jpeg",
+      "/projects/macadamia-estate/gallery-4.jpeg",
+      "/projects/macadamia-estate/gallery-5.jpeg",
+      "/projects/macadamia-estate/gallery-6.jpeg"
+    ],
+    seoDescription:
+      "Macadamia Estate by Skanda Estates — 47-acre macadamia farmland at Narayanakhed (Abbenda) with gunta plots from Rs. 1.21 Lakh, easy EMI plans, and farm revenue sharing."
   }
 ];
 

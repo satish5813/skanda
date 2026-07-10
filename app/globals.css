@@ -1219,6 +1219,40 @@ textarea:focus {
   line-height: 1.12;
 }
 
+.plot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.plot-options span {
+  padding: 9px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  color: var(--forest);
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+
+.payment-section {
+  padding-top: 0;
+}
+
+.payment-section .investment-strip {
+  padding-top: 0;
+}
+
+.plan-note {
+  width: min(760px, 100%);
+  margin: 20px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
