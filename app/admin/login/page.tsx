@@ -1,6 +1,6 @@
-﻿import { AlertTriangle, LogIn } from "lucide-react";
+import { LogIn } from "lucide-react";
 import { redirect } from "next/navigation";
-import { isAdminConfigured, setAdminSession, validateAdminPassword } from "@/lib/auth";
+import { setAdminSession, validateAdminCredentials } from "@/lib/auth";
 
 type LoginPageProps = {
   searchParams?: {
@@ -11,9 +11,10 @@ type LoginPageProps = {
 async function login(formData: FormData) {
   "use server";
 
+  const username = String(formData.get("username") || "");
   const password = String(formData.get("password") || "");
 
-  if (!validateAdminPassword(password)) {
+  if (!validateAdminCredentials(username, password)) {
     redirect("/admin/login?error=invalid");
   }
 
@@ -32,8 +33,6 @@ export const metadata = {
 };
 
 export default function AdminLoginPage({ searchParams }: LoginPageProps) {
-  const configured = isAdminConfigured();
-
   return (
     <main className="admin-shell admin-shell--centered">
       <section className="admin-login">
@@ -44,31 +43,24 @@ export default function AdminLoginPage({ searchParams }: LoginPageProps) {
           Sign in to view saved enquiries, inspect buyer requirements, and download CSV lead data.
         </p>
 
-        {!configured ? (
-          <div className="setup-warning">
-            <AlertTriangle size={20} aria-hidden="true" />
-            <span>
-              Set <strong>ADMIN_PASSWORD</strong> and <strong>AUTH_SECRET</strong> in your environment before using admin access.
-            </span>
-          </div>
-        ) : (
-          <form action={login} className="admin-login__form">
-            <label>
-              Admin password
-              <input name="password" type="password" required autoComplete="current-password" />
-            </label>
-            {searchParams?.error === "invalid" ? (
-              <p className="form-status form-status--error">Invalid admin password.</p>
-            ) : null}
-            <button className="button button--primary button--full" type="submit">
-              <LogIn size={18} aria-hidden="true" />
-              Open dashboard
-            </button>
-          </form>
-        )}
+        <form action={login} className="admin-login__form">
+          <label>
+            Username
+            <input name="username" type="text" required autoComplete="username" />
+          </label>
+          <label>
+            Admin password
+            <input name="password" type="password" required autoComplete="current-password" />
+          </label>
+          {searchParams?.error === "invalid" ? (
+            <p className="form-status form-status--error">Invalid username or password.</p>
+          ) : null}
+          <button className="button button--primary button--full" type="submit">
+            <LogIn size={18} aria-hidden="true" />
+            Open dashboard
+          </button>
+        </form>
       </section>
     </main>
   );
 }
-
-

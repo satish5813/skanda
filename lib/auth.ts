@@ -3,29 +3,14 @@ import { cookies } from "next/headers";
 
 export const ADMIN_COOKIE = "skanda_admin_session";
 
-function getPassword() {
-  return process.env.ADMIN_PASSWORD?.trim() || "";
-}
-
-function getSecret() {
-  return process.env.AUTH_SECRET?.trim() || "";
-}
-
-export function isAdminConfigured() {
-  return Boolean(getPassword() && getSecret());
-}
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "skanda@123";
+const SESSION_SECRET = "skanda-estates-admin-session-2026";
 
 function createAdminToken() {
-  const password = getPassword();
-  const secret = getSecret();
-
-  if (!password || !secret) {
-    return "";
-  }
-
   return crypto
     .createHash("sha256")
-    .update(`skanda-estates:${password}:${secret}`)
+    .update(`skanda-estates:${ADMIN_USERNAME}:${ADMIN_PASSWORD}:${SESSION_SECRET}`)
     .digest("hex");
 }
 
@@ -39,14 +24,8 @@ function safeEqual(left: string, right: string) {
   );
 }
 
-export function validateAdminPassword(password: string) {
-  const configuredPassword = getPassword();
-
-  if (!configuredPassword) {
-    return false;
-  }
-
-  return safeEqual(password, configuredPassword);
+export function validateAdminCredentials(username: string, password: string) {
+  return safeEqual(username, ADMIN_USERNAME) && safeEqual(password, ADMIN_PASSWORD);
 }
 
 export function setAdminSession() {
@@ -64,12 +43,8 @@ export function clearAdminSession() {
 }
 
 export function hasAdminSession() {
-  if (!isAdminConfigured()) {
-    return false;
-  }
-
   const token = cookies().get(ADMIN_COOKIE)?.value || "";
   const expected = createAdminToken();
 
-  return Boolean(token && expected && safeEqual(token, expected));
+  return Boolean(token && safeEqual(token, expected));
 }
