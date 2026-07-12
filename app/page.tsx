@@ -259,6 +259,9 @@ export default function HomePage() {
       <footer className="footer">
         <span>&copy; {new Date().getFullYear()} Skanda Estates. Building Better Tomorrow.</span>
         <span>All project details are indicative and subject to final documentation.</span>
+        <span>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+        </span>
       </footer>
     </>
   );
